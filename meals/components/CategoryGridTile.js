@@ -38,7 +38,7 @@ function CategoryGridTile(props){
 
         return(
             <View style={styles.grid}>
-                <Pressable style={({pressed})=>[styles.button, pressed?styles.iosPressed:null]} android_ripple={{color:Colors.WhiteBlue200}}>
+                <Pressable style={({pressed})=>[styles.button, pressed?styles.iosPressed:null]} android_ripple={{color:Colors.WhiteBlue200}} onPress={props.onPress}>
                   <View style={[styles.innerGrid,{backgroundColor:props.color}]}>
                     <Text style={styles.gridText}>{props.title} </Text>
                   </View>

@@ -9,10 +9,10 @@ export default function App() {
   return (
     <>
     <StatusBar style='dark' />
-    <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer >
+      <Stack.Navigator initialRouteName="MealsCategory">
         <Stack.Screen name="MealsCategory" component={CategoryScreen}/>
-        <Stack.Screen name="MealDescription" component={MealsDetailsScreen}/>
+        <Stack.Screen name="MealDescription" component={MealsDetailsScreen}/>      
       </Stack.Navigator>
     </NavigationContainer>
 

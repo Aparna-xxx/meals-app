@@ -9,7 +9,10 @@ function CategoryScreen({navigation}){
 
   function renderCategoryItem(itemObject){
     function pressHandler(){
-      navigation.navigate("MealDescription")
+      navigation.navigate("MealDescription", {
+        CategoryId:itemObject.item.id,
+        
+      })
     }
     
     return <CategoryGridTile title={itemObject.item.title} color={itemObject.item.color} onPress={pressHandler}/>
@@ -17,7 +20,7 @@ function CategoryScreen({navigation}){
 
     return (
     <View style={styles.rootContainer}>  
-      <FlatList  data={CATEGORIES}  keyExtractor= {(item)=>item.id} renderItem={renderCategoryItem} numColumns={2} />
+      <FlatList  data={CATEGORIES}  keyExtractor={(item)=>item.id} renderItem={renderCategoryItem} numColumns={2} />
     </View>
     );
 

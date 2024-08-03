@@ -1,6 +1,8 @@
 import {CATEGORIES } from '../data/dummy-data'
-import { FlatList,View,StyleSheet } from 'react-native';
+import { FlatList,View,StyleSheet,Button } from 'react-native';
 import CategoryGridTile from '../components/CategoryGridTile';
+import { useLayoutEffect } from 'react';
+import IconButton from '../components/IconButton';
 import Colors from '../utils/Colors';
 
 
@@ -17,6 +19,21 @@ function CategoryScreen({navigation}){
     
     return <CategoryGridTile title={itemObject.item.title} color={itemObject.item.color} onPress={pressHandler}/>
   }
+
+  //code for icon button
+  // function headerButtonOnPress(){
+  //   console.log("header button pressed");
+  // }
+
+  // useLayoutEffect(()=>{
+  //   navigation.setOptions({
+     
+  //       headerRight:()=>{
+  //         return <IconButton onPress={headerButtonOnPress} icon="star" color="white"/>
+  //       }
+       
+  //   })
+  // },[navigation,headerButtonOnPress])
 
     return (
     <View style={styles.rootContainer}>  

@@ -14,14 +14,14 @@ const Drawer = createDrawerNavigator();
 function DrawerNavigator(){
   return <Drawer.Navigator screenOptions={{
     
-    headerStyle: { backgroundColor: Colors.DarkBlue100 },
-    headerTintColor: 'white',
+    headerStyle: { backgroundColor: 'black' },
+    headerTintColor:Colors.White700,
     sceneContainerStyle: { backgroundColor: Colors.WhiteBlue100 },
-    drawerContentStyle:{backgroundColor:'brown'},
-    drawerInactiveTintColor:'white',
-    drawerActiveTintColor: Colors.DarkBlue100,
+    drawerContentStyle:{backgroundColor:'black'},
+    drawerInactiveTintColor:Colors.White700,
+    drawerActiveTintColor:Colors.WhiteBlue400,
   }}>
-    <Drawer.Screen name="Categories" component={CategoryScreen} options={{drawerIcon:({color,size})=><Ionicons name='list' color={color} size={size}/>}}/>
+    <Drawer.Screen name="Meal Categories" component={CategoryScreen} options={{drawerIcon:({color,size})=><Ionicons name='list' color={color} size={size}/>}}/>
     <Drawer.Screen name="Cart" component={CartScreen} options={{drawerIcon:({color,size})=><Ionicons name='cart' color={color} size={size}/>}}/>
   </Drawer.Navigator>
 } 
@@ -35,8 +35,8 @@ export default function App() {
           initialRouteName="MealsCategory"
           screenOptions={{
             title: 'Meal Groups',
-            headerStyle: { backgroundColor: Colors.DarkBlue100 },
-            headerTintColor: 'white',
+            headerStyle: { backgroundColor:'black' },
+            headerTintColor:Colors.White700,
             contentStyle: { backgroundColor: Colors.WhiteBlue100 },
           }}
         >

@@ -1,4 +1,4 @@
-import { View,FlatList,StyleSheet } from "react-native";
+import { View,FlatList,StyleSheet,ImageBackground } from "react-native";
 import { CATEGORIES, MEALS } from "../data/dummy-data";
 import { useRoute } from "@react-navigation/native";
 import MealItem from "../components/MealItem";
@@ -25,18 +25,21 @@ function MealsDetailsScreen( {navigation}){
         const MealItemProps ={
             title:item.title,
             imageURL:item.imageUrl,
-            duration:item.duration,
+            // duration:item.duration,
             complexity:item.complexity,
-            affordabilty:item.affordability,
+            //Complexity is the price
+            //affordabilty:item.affordability,
 
         }
         return <MealItem {...MealItemProps}/>
     }
     
     return(
+        <ImageBackground source={require("../assets/images/psg.jpg")}  style={styles.rootContainer} imageStyle={styles.backgroundImage}>
         <View style={styles.rootContainer}>
             <FlatList data={currentMeals}  keyExtractor={(item) => item.id} renderItem={renderMealItems}/>
         </View>
+        </ImageBackground>
     )
 }
 
@@ -45,7 +48,10 @@ export default MealsDetailsScreen;
 const styles=StyleSheet.create({
     rootContainer:{
         flex:1,
-        padding:16,
+        paddingHorizontal:3
         
+    },
+    backgroundImage:{
+        opacity:0.5,
     }
 })

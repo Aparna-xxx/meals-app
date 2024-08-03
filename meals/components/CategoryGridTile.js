@@ -39,7 +39,7 @@ function CategoryGridTile(props){
         return(
             <View style={styles.grid}>
                 <Pressable style={({pressed})=>[styles.button, pressed?styles.iosPressed:null]} android_ripple={{color:Colors.WhiteBlue200}} onPress={props.onPress}>
-                  <View style={[styles.innerGrid,{backgroundColor:props.color}]}>
+                  <View style={[styles.innerGrid,{backgroundColor:Colors.White700}]}>
                     <Text style={styles.gridText}>{props.title} </Text>
                   </View>
                 </Pressable>
@@ -63,6 +63,11 @@ const styles=StyleSheet.create({
         margin:10,
         borderRadius:10,
         overflow: Platform.OS==='android'?'hidden':'visible', 
+        opacity:0.8,
+        borderColor:'black',
+        borderWidth:1,
+        
+      
         
     },
     iosPressed:{
@@ -74,6 +79,8 @@ const styles=StyleSheet.create({
       justifyContent:'center',
       alignItems:'center',
       borderRadius:10,
+      
+  
     },
     button:{
       flex:1,
@@ -82,6 +89,7 @@ const styles=StyleSheet.create({
     gridText:{
       fontFamily:'Manrope_800ExtraBold',
       fontSize:ScreenWidth/21,
+      color:'#000000',
     }
     
 })

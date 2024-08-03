@@ -1,9 +1,6 @@
 import {CATEGORIES } from '../data/dummy-data'
-import { FlatList,View,StyleSheet,Button } from 'react-native';
+import { FlatList,View,StyleSheet,ImageBackground } from 'react-native';
 import CategoryGridTile from '../components/CategoryGridTile';
-import { useLayoutEffect } from 'react';
-import IconButton from '../components/IconButton';
-import Colors from '../utils/Colors';
 
 
 
@@ -16,8 +13,8 @@ function CategoryScreen({navigation}){
         
       })
     }
-    
-    return <CategoryGridTile title={itemObject.item.title} color={itemObject.item.color} onPress={pressHandler}/>
+    //color={itemObject.item.color} if you want to padd custom colour too
+    return <CategoryGridTile title={itemObject.item.title} onPress={pressHandler}/>
   }
 
   //code for icon button
@@ -36,9 +33,13 @@ function CategoryScreen({navigation}){
   // },[navigation,headerButtonOnPress])
 
     return (
+    
+    <ImageBackground source={require("../assets/images/psg.jpg")}  style={styles.rootContainer} imageStyle={styles.backgroundImage}>
+
     <View style={styles.rootContainer}>  
       <FlatList  data={CATEGORIES}  keyExtractor={(item)=>item.id} renderItem={renderCategoryItem} numColumns={2} />
     </View>
+    </ImageBackground>
     );
 
 }
@@ -48,6 +49,9 @@ export default CategoryScreen;
 const styles= StyleSheet.create({
   rootContainer: {
     flex:1,
-    backgroundColor:Colors.WhiteBlue100,
+  },
+  backgroundImage:{
+    opacity:0.5,
   }
+
 })

@@ -6,7 +6,8 @@ Colours={
     'GreyBlue400':'#718da8',
     'OrangeAnimation':'#FF8000',
     'LinkRed':'#C41E3A',
-    'White300':'#FAF9F6'
+    'White300':'#FAF9F6',
+    'White700':'#E2E8DD',
 
 }
 export default Colours;

@@ -11,6 +11,8 @@ import {
   } from '@expo-google-fonts/manrope';
 
 import Colors from "../utils/Colors"; 
+import AntDesign from '@expo/vector-icons/AntDesign';
+
   
 
 const ScreenWidth = Dimensions.get('window').width;
@@ -34,21 +36,31 @@ function MealItem(props){
         return null;
       }
       else{
+        function clicked(){
+            console.log("clicked");
+        }
         return( 
                 <View style={styles.CardStyle}>
-                    <Pressable android_ripple={{'color':Colors.GreyBlue400}} style={({pressed})=>pressed&&Platform.OS==='ios'?styles.iosPressed:null}>
+                    
                     <View style={styles.InnerContainer}>
                         <View>
                             <Image source={{uri:props.imageURL}} style={styles.imageStyle}/>
                             <Text style={styles.titleStyle}>{props.title}</Text>
+                            <Text style={styles.titleStyle}>{props.complexity}</Text>
                         </View>
                         <View style={styles.textContainer}>
-                            <Text style={styles.descriptionText}>{props.duration}</Text>
-                            <Text style={styles.descriptionText}>{props.complexity}</Text>
-                            <Text style={styles.descriptionText}>{props.affordabilty}</Text>
+                            <Pressable  style={({pressed})=>pressed?styles.Pressed:null} onPress={clicked}>
+                            <AntDesign name="minuscircle" size={30} color={Colors.White700} />
+                            </Pressable>
+                            <View style={styles.quantityContainer}>
+                               <Text style={styles.descriptionText}>0</Text>
+                            </View>
+                            <Pressable style={({pressed})=>pressed?styles.Pressed:null} onPress={clicked}>
+                            <AntDesign name="pluscircle" size={30} color={Colors.White700} />
+                            </Pressable>
                         </View>
                         </View>
-                    </Pressable>
+                    
                     
                 </View>
         )
@@ -62,13 +74,15 @@ const styles=StyleSheet.create({
 
     CardStyle:{
         borderRadius:10,
-        backgroundColor:Colors.WhiteBlue400,
+        backgroundColor:'black',
         margin:10,
         elevation:4,
         shadowColor:'black',
         shadowOpacity:0.25,
         shadowOffset:{width:0, height:2},
         shadowRadius:8,
+        borderWidth:1,
+    
 
 
     },
@@ -87,8 +101,9 @@ const styles=StyleSheet.create({
     titleStyle: {
         fontFamily:'Manrope_400Regular',
         fontSize:18,
-        textAlign:'center',
         marginTop:ScreenHeight/70,
+        color:Colors.White700,
+        textAlign:'center'
         
     },
     textContainer:{
@@ -101,8 +116,18 @@ const styles=StyleSheet.create({
     descriptionText:{
         fontFamily:'Manrope_400Regular',
         fontSize:16,
+        color:'black',
+        textAlign:'center',
+        fontWeight:'bold'
     },
-    iosPressed:{
+    Pressed:{
         opacity:0.7,
+    },
+    quantityContainer:{
+        backgroundColor:Colors.White700,
+        height:32,
+        width:60,
+        borderRadius:5,
+        padding:2
     }
 })

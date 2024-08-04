@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Button,Pressable,Dimensions } from 'react-native';
 import { CartContext } from '../context/CartContext';
 import { MEALS } from '../data/dummy-data';
 import Colors from '../utils/Colors';
+import AntDesign from '@expo/vector-icons/AntDesign';
+
+const ScreenWidth = Dimensions.get('window').width;
 
 function CartScreen() {
-    const { cart } = useContext(CartContext);
+    const { cart, addToCart, removeFromCart, clearCart } = useContext(CartContext);
 
     const cartItems = Object.keys(cart).map((mealId) => {
         const meal = MEALS.find((meal) => meal.id === mealId);
@@ -17,6 +20,14 @@ function CartScreen() {
         return (
             <View style={styles.cartItem}>
                 <Text style={styles.itemText}>{item.title} x {item.quantity}</Text>
+                <View style={styles.buttonContainer}>
+                    <Pressable style={styles.button} onPress={() => removeFromCart(item.id)}>
+                        <AntDesign name="minuscircle" size={24} color='black' />
+                    </Pressable>
+                    <Pressable style={styles.button} onPress={() => addToCart(item.id)}>
+                        <AntDesign name="pluscircle" size={24} color='black' />
+                    </Pressable>
+                </View>
             </View>
         );
     }
@@ -28,6 +39,9 @@ function CartScreen() {
                 keyExtractor={(item) => item.id}
                 renderItem={renderCartItem}
             />
+            <View style={styles.clearButtonContainer}>
+                <Button title="Clear Cart" onPress={clearCart} color={Colors.White700} />
+            </View>
         </View>
     );
 }
@@ -45,10 +59,24 @@ const styles = StyleSheet.create({
         padding: 10,
         marginVertical: 5,
         borderRadius: 10,
+        // flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     itemText: {
         fontFamily: 'Manrope_400Regular',
         fontSize: 16,
         color: 'black',
     },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width:ScreenWidth/2,
+        marginTop:16,
+    },
+    clearButtonContainer: {
+        marginTop: 20,
+        alignItems: 'center',
+    },
+    
 });

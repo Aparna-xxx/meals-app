@@ -50,7 +50,7 @@ function MealItem(props) {
                     <View>
                         <Image source={{ uri: props.imageURL }} style={styles.imageStyle} />
                         <Text style={styles.titleStyle}>{props.title}</Text>
-                        <Text style={styles.titleStyle}>{props.complexity}</Text>
+                        <Text style={styles.priceStyle}>{`₹${props.complexity}`}</Text>
                     </View>
                     <View style={styles.textContainer}>
                         <Pressable style={({ pressed }) => pressed ? styles.Pressed : null} onPress={decrementQuantity}>
@@ -98,6 +98,12 @@ const styles = StyleSheet.create({
         color: Colors.White700,
         textAlign: 'center',
     },
+    priceStyle: {
+        fontFamily: 'Manrope_400Regular',
+        fontSize: 16,
+        color: Colors.White700,
+        textAlign: 'center',
+    },
     textContainer: {
         paddingHorizontal: ScreenWidth / 16,
         paddingVertical: ScreenHeight / 50,
@@ -120,5 +126,7 @@ const styles = StyleSheet.create({
         width: 60,
         borderRadius: 5,
         padding: 2,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 });

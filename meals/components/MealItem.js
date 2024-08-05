@@ -50,7 +50,7 @@ function MealItem(props) {
                     <View>
                         <Image source={{ uri: props.imageURL }} style={styles.imageStyle} />
                         <Text style={styles.titleStyle}>{props.title}</Text>
-                        <Text style={styles.priceStyle}>{`₹${props.complexity}`}</Text>
+                        <Text style={styles.priceStyle}>{`₹${props.price}`}</Text>
                     </View>
                     <View style={styles.textContainer}>
                         <Pressable style={({ pressed }) => pressed ? styles.Pressed : null} onPress={decrementQuantity}>

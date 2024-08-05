@@ -23,3 +23,4 @@ export const fetchMealsByCategory = async (categoryId) => {
     return []; // Return an empty array in case of error
   }
 };
+

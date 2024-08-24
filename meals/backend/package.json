@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "expo-network": "^6.0.1",
+    "react-native-network-info": "^5.2.1"
   }
 }

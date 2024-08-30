@@ -6,7 +6,7 @@ import Category from '../backend/models/category';
 
 const fetchCategories = async () => {
   //const ipAddress = getLocalIPAddress();
-  const ipAddress = "192.168.100.5"; // Corrected the IP address format
+  const ipAddress = "192.168.1.143"; // Corrected the IP address format
   const url = `http://${ipAddress}:3000/categories`;
   const response = await fetch(url);
   const data = await response.json();

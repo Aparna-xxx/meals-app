@@ -3,7 +3,7 @@ import Meal from '../models/meal'; // Ensure this path is correct
 // Function to fetch meals by category
 export const fetchMealsByCategory = async (categoryId) => {
   try {
-    const ipAddress = "192.168.1.143"; // Update to your server's IP address
+    const ipAddress = "192.168.100.5"; // Update to your server's IP address
     const response = await fetch(`http://${ipAddress}:3000/meals?categoryId=${categoryId}`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -29,7 +29,7 @@ export const fetchMealsByCategory = async (categoryId) => {
 // Function to fetch wallet balance
 export const fetchWalletBalance = async () => {
   try {
-    const ipAddress = "192.168.1.143"; // Update to your server's IP address
+    const ipAddress = "192.168.100.5"; // Update to your server's IP address
     const response = await fetch(`http://${ipAddress}:3000/wallet`);
     if (!response.ok) {
       const errorText = await response.text();
